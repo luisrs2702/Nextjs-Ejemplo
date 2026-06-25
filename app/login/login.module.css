@@ -1,0 +1,113 @@
+.inputStyle{
+   
+    border-bottom-color:  rgb(25, 135, 84);
+    border-width: 2px;
+    border-color:#212732!important;
+    /* border-right-color: #212732!important;
+    border-top-color:#212732!important;
+    border-bottom-color:#212732!important; */
+    outline: none;
+    box-shadow:none !important;
+    background-color: #05070A!important;
+    color:#e9ebef!important;
+      /*border:1px solid #ccc !important;*/
+
+}
+
+.inputStyle:focus{
+    outline: none;
+    box-shadow:none !important;
+    border-bottom-color:rgb(25, 135, 84);
+    border-width: 2px;
+    border-left-color:rgb(33, 37, 41);
+    border-right-color: rgb(33, 37, 41);
+    border-top-color:rgb(33, 37, 41);
+    background-color: rgb(33, 37, 41);
+    color:white;
+}
+.spanEstilo {
+    background-color: transparent;
+    border-bottom-color: rgb(33, 37, 41);
+    border-width: 2px;
+    border-left-color:rgb(33, 37, 41);
+    border-right-color: rgb(33, 37, 41);
+    border-top-color:rgb(33, 37, 41);
+}
+
+
+#username::placeholder {
+    color: #3C4559;
+    opacity: 1; /* Firefox */
+} 
+#pass::placeholder {
+    color: #3C4559;
+    opacity: 1; /* Firefox */
+} 
+#bt_entrar {
+    border-color: rgba(4, 206, 172, 0.25);
+    background-color: rgb(2, 185, 155);
+    color: white;
+}
+#bt_entrar:hover {
+    background-color: rgb(2, 185, 155);
+    box-shadow: 0 0 0 0.3rem rgba(4, 206, 172, 0.25);
+}
+
+
+.iconStyle{
+    color: rgb(255, 255, 255);
+}
+  
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+ /*  border: 1px solid green;*/
+  -webkit-text-fill-color: rgb(247, 248, 247); 
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.contenedorPrincipal {
+  background-color: #051322; /* Tu color de fondo (ej. azul) */
+  min-height: 100vh;         /* Asegura que cubra todo el alto de la pantalla */
+  width: 100%;
+  padding: 2rem;
+  /*color: white;*/              /* Color del texto para que contraste */
+}
+
+/* Tarjeta.module.css */
+.cardCustom {
+ display: flex !important;
+  flex-direction: column !important;
+  align-self: center !important;
+  width: 100% !important;
+  padding: 2rem !important; /* theme.spacing(4) */
+  gap: 1rem !important;     /* theme.spacing(2) */
+  margin: auto !important;
+  
+  /* Redondeado exacto de las tarjetas de esa plantilla */
+  border-radius: 12px !important; 
+  
+  /* 🎨 EL SECRETO: Blanco con un 5% de opacidad + un borde muy fino */
+  background-color: rgba(255, 255, 255, 0.05) !important; 
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  
+  /* El sutil desenfoque de fondo que usa MUI */
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+
+  /* 🌌 TUS SOMBRAS ORIGINALES DEL MODO OSCURO */
+  box-shadow: hsla(220, 30%, 5%, 0.5) 0px 5px 15px 0px, 
+              hsla(220, 25%, 10%, 0.08) 0px 15px 35px -5px !important;
+}
+
+.labelStyle{
+    color:#94A0B8;
+}
