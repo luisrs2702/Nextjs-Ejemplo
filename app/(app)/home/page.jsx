@@ -10,7 +10,7 @@ export default function HomePage() {
     return (
         
         <div className="container mt-4">
-            <h1>Dashboard</h1>
+            <h1>Home</h1>
             <p>Nombre: {session.user?.name}</p>
             <p>Email: {session.user?.email}</p>
         </div>

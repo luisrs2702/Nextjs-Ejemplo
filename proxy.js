@@ -7,9 +7,18 @@ export const proxy = auth((req) => {
     const newUrl = new URL("/login", req.nextUrl.origin)
     return Response.redirect(newUrl)
   }
+    /*const allowedRoutes = session.user?.routes || [];
+
+    // Validar si la URL que intenta escribir coincide con sus permisos de la BD
+    const hasAccess = allowedRoutes.some((route) => route.path === currentPath);
+
+    if (!hasAccess) {
+    // Si no tiene permiso, lo mandamos a una ruta segura por defecto (o un 403 personalizado)
+    return NextResponse.redirect(new URL("/dashboard", req.url));
+    }*/
 })
 
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/profile/:path*"],
+  matcher: ["/dashboard/:path*", "/perfil/:path*"],
 }

@@ -47,6 +47,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             
             // Guardamos los datos del usuario (id, name, email)
             token.userData = user.user; 
+            //?token.role = user.role;         // Ej: "admin" o "editor"
+            //?token.routes = user.routes;
             
             // Opcional: 
             //token.expiresAt = user.expires_at;
@@ -60,6 +62,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             session.laravelToken = token.laravelToken;
             session.user = token.userData; // Esto reemplaza o complementa el objeto user por defecto
             //session.expiresAt = token.expiresAt;
+            //?session.user.role = token.role;
+            //?session.user.routes = token.routes;
             
             return session;
         },
