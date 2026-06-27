@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { api } from "@/app/lib/configAxios"
+import { api } from "@/app/_lib/configAxios"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
