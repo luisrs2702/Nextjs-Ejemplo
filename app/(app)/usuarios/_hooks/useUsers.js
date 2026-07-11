@@ -7,8 +7,8 @@ export const useUsers = () => {
         queryFn: fetchUsers,
         refetchOnWindowFocus: false,//evitar el refetch al regresar a la ventana
         initialPageParam: 1, // Página inicial
-        getNextPageParam:(lastPage)=>lastPage.nextCursor},
-    )
+        getNextPageParam:(lastPage)=>lastPage.nextCursor
+    })
 
     return{
         isLoading,
