@@ -1,27 +1,36 @@
 'use client'
 import { useRef,useState,useEffect,useMemo } from "react";
 import UserList from "./_components/UserList";
-import { useQuery } from '@tanstack/react-query'
+import { useQuery,useInfiniteQuery } from '@tanstack/react-query'
 
-const fetchUsers = async (page) => {
-    const res = await fetch(`https://randomuser.me/api?results=10&seed=prueba&page=${page}`)
+const fetchUsers = async ({pageParam=1}) => {
+    const res = await fetch(`https://randomuser.me/api?results=10&seed=prueba&page=${pageParam}`)
 
     if (!res.ok) {
     throw new Error('Error en la petición')
     }
 
     const data = await res.json()
+    const currentPage=data.info.page
+    const nextCursor=currentPage>3?undefined:currentPage+1
 
-    return data.results
+    return {users:data.results,nextCursor}
 }
 
 export default function ConsultaPage() {
-    const {isLoading,isError, data:users=[],error } = useQuery({ queryKey: ['posts'], queryFn:  () => fetchUsers(1) })
+    //const {isLoading,isError, data:users=[],error } = useQuery({ queryKey: ['posts'], queryFn:  () => fetchUsers(1) })
+    const {isLoading,isError, data,error,fetchNextPage,hasNextPage } = useInfiniteQuery({ queryKey: ['posts'],
+        //queryFn:  () => fetchUsers,
+        queryFn: fetchUsers,
+        initialPageParam: 1, // Página inicial
+        getNextPageParam:(lastPage)=>lastPage.nextCursor}
+    )
     const originalUsers = useRef([])
     const [showColors, setShowColors] = useState(false)
     const [sorting, setSorting] = useState('NONE')
     const [filterCountry, setFilterCountry] = useState(null)
     const [currentPage, setCurrentPage] = useState(1)
+    const users=data?.pages?.flatMap(page=>page.users)??[]
    
 
    /* useEffect(() => {
@@ -99,7 +108,10 @@ export default function ConsultaPage() {
             </div>
            
             <div className="row align-items-center justify-content-center text-center mt-3 mb-3">
-                <div className="col">{!isLoading && !isError && <button onClick={()=>setCurrentPage(currentPage+1)}>Cargar más resultados</button>}</div>
+                <div className="col">
+                    {!isLoading && !isError && hasNextPage && <button onClick={async()=>{await fetchNextPage()}}>Cargar más resultados</button>}
+                    {!isLoading && !isError && !hasNextPage && <p>No hay mas datos</p>}
+                </div>
             </div>
 
         </>
