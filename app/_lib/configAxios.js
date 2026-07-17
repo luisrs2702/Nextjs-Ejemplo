@@ -1,7 +1,7 @@
 import axios from "axios"
-
+//import.meta.env.VITE_PUBLIC_API_KEY
 export const api = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "https://fakestoreapi.com",
   headers: {
     "Content-Type": "application/json",
   },

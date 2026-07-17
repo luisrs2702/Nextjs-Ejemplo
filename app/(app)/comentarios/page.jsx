@@ -44,6 +44,8 @@ export default function ComentariosPage() {
     function handleSubmit(event) {
         event.preventDefault();
         const data = new FormData(event.currentTarget)
+       // const comment=Object.fromEntries(data)//*evitar data.get para cada campo
+       // const message = comment.mensaje?.toString() ?? ''
         const message = data.get('mensaje')?.toString() ?? ''
         const title = data.get('titulo')?.toString() ?? ''
 
